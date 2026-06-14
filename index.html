@@ -1,0 +1,143 @@
+<title>北アルプスライブカメラ</title>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        width: 100%;
+        height: 100%;
+    }
+
+    .grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #222;
+}
+
+    .panel {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    height: 50vh;
+}
+
+    .panel img,
+    .panel iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        object-fit: cover;
+    }
+
+    .label {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: sans-serif;
+    }
+
+    /* スマホ表示 */
+
+    @media (max-width: 768px) {
+
+        html,
+        body {
+            height: auto;
+        }
+
+        .grid {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+        }
+
+        .panel {
+            height: 45vh;
+            min-height: 280px;
+        }
+    }
+</style>
+<div class="grid">
+
+    <div class="panel">
+        <div class="label">穂高岳山荘 東</div>
+        <img id="hotaka1"
+            src="https://www.hotakadakesanso.com/livecam-data/hotakacam1.jpg">
+    </div>
+
+    <div class="panel">
+        <div class="label">穂高岳山荘 西</div>
+        <img id="hotaka2"
+            src="https://www.hotakadakesanso.com/livecam-data/hotakacam2.jpg">
+    </div>
+
+    <div class="panel">
+        <div class="label">涸沢ヒュッテ</div>
+        <img id="karasawa"
+            src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/karasawa.jpg">
+    </div>
+
+    <div class="panel">
+        <div class="label">蝶ヶ岳ヒュッテ</div>
+        <img id="cho"
+            src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/cyougatake.jpg">
+    </div>
+
+    <div class="panel">
+        <div class="label">五千尺</div>
+        <iframe
+            src="https://www.gosenjaku.co.jp/live-camera/"
+            style="
+                width:100%;
+                height:250%;
+                margin-top:-350px;
+                border:0;
+            ">
+        </iframe>
+    </div>
+
+    <div class="panel">
+        <div class="label">西穂ロープウェイ</div>
+        <iframe
+            src="https://livecombs.com/gifuken/takayama-shi/shinhotaka-ropeway/"
+            style="
+                width:100%;
+                height:350%;
+                margin-top:-550px;
+                border:0;
+            ">
+        </iframe>
+    </div>
+
+</div>
+
+<script>
+    function refreshImages() {
+        const t = Date.now();
+
+        document.getElementById('hotaka1').src =
+            'https://www.hotakadakesanso.com/livecam-data/hotakacam1.jpg?t=' + t;
+
+        document.getElementById('hotaka2').src =
+            'https://www.hotakadakesanso.com/livecam-data/hotakacam2.jpg?t=' + t;
+
+        document.getElementById('karasawa').src =
+            'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/karasawa.jpg?t=' + t;
+
+        document.getElementById('cho').src =
+            'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/cyougatake.jpg?t=' + t;
+    }
+
+    setInterval(refreshImages, 300000);
+</script>
