@@ -149,8 +149,9 @@
 </div>
 
 <div class="panel">
-    <div class="label">カメラ9</div>
-    <img src="画像URL">
+    <div class="label">槍ヶ岳山荘</div>
+    <img id="yarigatake"
+         src="https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg">
 </div>
 
 </div>
@@ -170,6 +171,9 @@
 
         document.getElementById('cho').src =
             'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/cyougatake.jpg?t=' + t;
+        
+        document.getElementById('yarigatake').src =
+    'https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg?t=' + t;
     }
 
     setInterval(refreshImages, 300000);
