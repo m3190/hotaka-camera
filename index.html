@@ -144,7 +144,7 @@
     <div class="label">新穂高ロープウェイ ライブカメラ</div>
     <iframe 
         src="https://www.youtube.com/embed/qmqsvWrFfww?autoplay=1&mute=1&playsinline=1"
-        allow="autoplay; fullscreen"
+        allow="autoplay; fullscreen">
     </iframe>
 </div>
 
@@ -174,6 +174,9 @@
         
         document.getElementById('yarigatake').src =
     'https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg?t=' + t;
+
+        document.getElementById('Kitaho').src =
+    'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/kitaho.jpg?t=' + t;
     }
 
     setInterval(refreshImages, 300000);
