@@ -173,14 +173,20 @@
         document.getElementById('cho').src =
             'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/cyougatake.jpg?t=' + t;
         
-        document.getElementById('yarigatake').src =
-    'https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg?t=' + t;
+        const yari = document.getElementById('yarigatake');
 
+yari.removeAttribute('src');
+
+setTimeout(function () {
+    yari.src =
+        'https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg?nocache='
+        + Date.now();
+}, 100);
         document.getElementById('Kitaho').src =
     'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/kitaho.jpg?t=' + t;
     }
-
-    setInterval(refreshImages, 300000);
+refreshImages();
+setInterval(refreshImages, 300000);
 </script>
 </body>
 </html>
