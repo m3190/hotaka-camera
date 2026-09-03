@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow,noarchive">
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+
+```
 <title>ライブカメラ一覧</title>
 
 <style>
@@ -12,16 +15,21 @@
     body {
         margin: 0;
         padding: 0;
-        background: #000;
         width: 100%;
         min-height: 100%;
+        background: #000;
     }
 
     body {
         overflow-y: auto;
     }
 
-    /* PC・タブレット：3列×3段 */
+    /* ========================================
+       PC・タブレット
+       3列表示
+       最初の画面には2段（6枚）が収まる
+       ======================================== */
+
     .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -36,20 +44,23 @@
         overflow: hidden;
         background: #000;
 
-        /* 画面内に上下2段が収まる高さ */
+        /* 画面内に2段が収まる高さ */
         height: calc((100vh - 30px) / 2);
 
         border: 2px solid #444;
         border-radius: 8px;
         box-sizing: border-box;
+
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     }
 
     .panel img,
     .panel iframe {
+        display: block;
         width: 100%;
         height: 100%;
         border: 0;
+
         object-fit: contain;
         background: #000;
     }
@@ -58,135 +69,389 @@
         position: absolute;
         left: 8px;
         top: 8px;
+
         z-index: 1000;
-        background: rgba(0, 0, 0, 0.6);
+
+        background: rgba(0, 0, 0, 0.65);
         color: white;
+
+        font-family: sans-serif;
         font-size: 14px;
         font-weight: bold;
+
         padding: 4px 8px;
         border-radius: 4px;
-        font-family: sans-serif;
+
+        pointer-events: none;
     }
 
-    /* スマホ：縦1列 */
+
+    /* ========================================
+       スマホ
+       縦1列
+       ======================================== */
+
     @media (max-width: 768px) {
+
         .grid {
             display: flex;
             flex-direction: column;
+
             width: 100%;
+
             gap: 10px;
             padding: 10px;
+
+            box-sizing: border-box;
         }
 
         .panel {
             width: 100%;
+
             height: 45vh;
             min-height: 280px;
         }
+
+        .panel img {
+            object-fit: contain;
+        }
     }
 </style>
+```
+
 </head>
 
 <body>
 
+```
 <div class="grid">
 
-    <div class="panel">
-        <div class="label">穂高岳山荘 東</div>
-        <img id="hotaka1"
-            src="https://www.hotakadakesanso.com/livecam-data/hotakacam1.jpg">
-    </div>
+
+    <!-- 1　穂高岳山荘 東 -->
 
     <div class="panel">
-        <div class="label">穂高岳山荘 西</div>
-        <img id="hotaka2"
-            src="https://www.hotakadakesanso.com/livecam-data/hotakacam2.jpg">
+
+        <div class="label">
+            穂高岳山荘 東
+        </div>
+
+        <img
+            id="hotaka1"
+            src="https://www.hotakadakesanso.com/livecam-data/hotakacam1.jpg"
+            alt="穂高岳山荘 東">
+
     </div>
 
-    <div class="panel">
-        <div class="label">涸沢ヒュッテ</div>
-        <img id="karasawa"
-            src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/karasawa.jpg">
-    </div>
+
+
+    <!-- 2　穂高岳山荘 西 -->
 
     <div class="panel">
-        <div class="label">蝶ヶ岳ヒュッテ</div>
-        <img id="cho"
-            src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/cyougatake.jpg">
+
+        <div class="label">
+            穂高岳山荘 西
+        </div>
+
+        <img
+            id="hotaka2"
+            src="https://www.hotakadakesanso.com/livecam-data/hotakacam2.jpg"
+            alt="穂高岳山荘 西">
+
     </div>
 
+
+
+    <!-- 3　涸沢ヒュッテ 静止画 -->
+
     <div class="panel">
-        <div class="label">五千尺</div>
+
+        <div class="label">
+            涸沢ヒュッテ
+        </div>
+
+        <img
+            id="karasawa"
+            src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/karasawa.jpg"
+            alt="涸沢ヒュッテ">
+
+    </div>
+
+
+
+    <!-- 4　蝶ヶ岳ヒュッテ -->
+
+    <div class="panel">
+
+        <div class="label">
+            蝶ヶ岳ヒュッテ
+        </div>
+
+        <img
+            id="cho"
+            src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/cyougatake.jpg"
+            alt="蝶ヶ岳ヒュッテ">
+
+    </div>
+
+
+
+    <!-- 5　五千尺 -->
+
+    <div class="panel">
+
+        <div class="label">
+            五千尺
+        </div>
+
         <iframe
-    src="https://www.youtube.com/embed/Iv2VUE_UhRQ?autoplay=1&mute=1&playsinline=1"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-</iframe>
+            id="youtube1"
+            data-src="https://www.youtube.com/embed/Iv2VUE_UhRQ?autoplay=1&mute=1&playsinline=1"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+
     </div>
 
+
+
+    <!-- 6　上高地バスターミナル -->
+
     <div class="panel">
-        <div class="label">上高地バスターミナル</div>
-       <iframe
-    src="https://www.youtube.com/embed/Hz3GKL4yDcw?autoplay=1&mute=1&playsinline=1"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-</iframe>
+
+        <div class="label">
+            上高地バスターミナル
+        </div>
+
+        <iframe
+            id="youtube2"
+            data-src="https://www.youtube.com/embed/Hz3GKL4yDcw?autoplay=1&mute=1&playsinline=1"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+
     </div>
 
-    
+
+
+    <!-- 7　北穂 -->
+
     <div class="panel">
-    <div class="label">北穂</div>
-    <img id="Kitaho"
-        src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/kitaho.jpg">
+
+        <div class="label">
+            北穂
+        </div>
+
+        <img
+            id="Kitaho"
+            src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/kitaho.jpg"
+            alt="北穂">
+
+    </div>
+
+
+
+    <!-- 8　新穂高ロープウェイ -->
+
+    <div class="panel">
+
+        <div class="label">
+            新穂高ロープウェイ
+        </div>
+
+        <iframe
+            id="youtube3"
+            data-src="https://www.youtube.com/embed/PbiRK9sVw9s?autoplay=1&mute=1&playsinline=1"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+
+
+    <!-- 9　槍ヶ岳山荘 -->
+
+    <div class="panel">
+
+        <div class="label">
+            槍ヶ岳山荘
+        </div>
+
+        <img
+            id="yarigatake"
+            referrerpolicy="no-referrer"
+            src="https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg"
+            alt="槍ヶ岳山荘">
+
+    </div>
+
+
+
+    <!-- 10　涸沢ヒュッテ LIVE -->
+
+    <div class="panel">
+
+        <div class="label">
+            涸沢ヒュッテ LIVE
+        </div>
+
+        <iframe
+            id="youtube4"
+            data-src="https://www.youtube.com/embed/d2qB4xMEfkQ?autoplay=1&mute=1&playsinline=1"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+
 </div>
 
-<div class="panel">
-    <div class="label">新穂高ロープウェイ ライブカメラ</div>
-    <iframe 
-        src="https://www.youtube.com/embed/PbiRK9sVw9s?autoplay=1&mute=1&playsinline=1"
-        allow="autoplay; fullscreen">
-    </iframe>
-</div>
 
-<div class="panel">
-    <div class="label">槍ヶ岳山荘</div>
-    <img id="yarigatake"
-         referrerpolicy="no-referrer"
-         src="https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg">
-</div>
-
-</div>
 
 <script>
+
+    /* ========================================
+       静止画像を5分おきに再取得
+       ======================================== */
+
     function refreshImages() {
+
         const t = Date.now();
+
 
         document.getElementById('hotaka1').src =
             'https://www.hotakadakesanso.com/livecam-data/hotakacam1.jpg?t=' + t;
 
+
         document.getElementById('hotaka2').src =
             'https://www.hotakadakesanso.com/livecam-data/hotakacam2.jpg?t=' + t;
+
 
         document.getElementById('karasawa').src =
             'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/karasawa.jpg?t=' + t;
 
+
         document.getElementById('cho').src =
             'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/cyougatake.jpg?t=' + t;
-        
-        const yari = document.getElementById('yarigatake');
 
-yari.removeAttribute('src');
 
-setTimeout(function () {
-    yari.src =
-        'https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg?nocache='
-        + Date.now();
-}, 100);
         document.getElementById('Kitaho').src =
-    'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/kitaho.jpg?t=' + t;
+            'https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/kitaho.jpg?t=' + t;
+
+
+
+        /*
+           槍ヶ岳山荘
+
+           キャッシュが残りやすいため、
+           一度srcを外してから再取得する
+        */
+
+        const yari =
+            document.getElementById('yarigatake');
+
+
+        yari.removeAttribute('src');
+
+
+        setTimeout(function () {
+
+            yari.src =
+                'https://www.yarigatake.co.jp/webcamera/yarigatake/yari-cam.jpg?nocache='
+                + Date.now();
+
+        }, 100);
+
     }
-refreshImages();
-setInterval(refreshImages, 300000);
+
+
+
+    /* 5分 = 300,000ミリ秒 */
+
+    setInterval(
+        refreshImages,
+        300000
+    );
+
+
+
+    /* ========================================
+       YouTubeを時間差で読み込み
+       
+       一度に4本接続しないことで
+       ページ表示時の負荷を分散
+       ======================================== */
+
+    function startYouTube() {
+
+
+        /* 0秒
+           五千尺 */
+
+        const youtube1 =
+            document.getElementById('youtube1');
+
+        youtube1.src =
+            youtube1.dataset.src;
+
+
+
+        /* 0.8秒後
+           上高地バスターミナル */
+
+        setTimeout(function () {
+
+            const youtube2 =
+                document.getElementById('youtube2');
+
+            youtube2.src =
+                youtube2.dataset.src;
+
+        }, 800);
+
+
+
+        /* 1.6秒後
+           新穂高ロープウェイ */
+
+        setTimeout(function () {
+
+            const youtube3 =
+                document.getElementById('youtube3');
+
+            youtube3.src =
+                youtube3.dataset.src;
+
+        }, 1600);
+
+
+
+        /* 2.4秒後
+           涸沢ヒュッテ LIVE */
+
+        setTimeout(function () {
+
+            const youtube4 =
+                document.getElementById('youtube4');
+
+            youtube4.src =
+                youtube4.dataset.src;
+
+        }, 2400);
+
+    }
+
+
+
+    /* YouTube読み込み開始 */
+
+    startYouTube();
+
+
 </script>
+```
+
 </body>
+
 </html>
