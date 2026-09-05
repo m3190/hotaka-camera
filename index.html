@@ -116,6 +116,29 @@
             object-fit: contain;
         }
     }
+
+    .youtube-link {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    z-index: 1000;
+
+    background: rgba(255, 0, 0, 0.85);
+    color: white;
+
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    padding: 7px 10px;
+    border-radius: 5px;
+
+    text-decoration: none;
+}
+
+.youtube-link:hover {
+    background: red;
+}
 </style>
 ```
 
@@ -163,19 +186,19 @@
 
     <!-- 3　涸沢ヒュッテ 静止画 -->
 
-    <div class="panel">
+<div class="panel">
+    <div class="label">涸沢ヒュッテ</div>
 
-        <div class="label">
-            涸沢ヒュッテ
-        </div>
+    <img id="karasawa"
+        src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/karasawa.jpg">
 
-        <img
-            id="karasawa"
-            src="https://www.kamikochi-vc.or.jp/livecam/northalps_latest_images/karasawa.jpg"
-            alt="涸沢ヒュッテ">
-
-    </div>
-
+    <a class="youtube-link"
+       href="https://www.youtube.com/watch?v=d2qB4xMEfkQ"
+       target="_blank"
+       rel="noopener noreferrer">
+        YouTube LIVE
+    </a>
+</div>
 
 
     <!-- 4　蝶ヶ岳ヒュッテ -->
